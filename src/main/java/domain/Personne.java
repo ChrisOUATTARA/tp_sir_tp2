@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ public class Personne implements Serializable {
 	private String nom;
 	private String prenom;
 	private String mail;
-	private List<Residence> listResidence;
+	private Collection<Residence> listResidence;
 	
 	@Id
 	@GeneratedValue
@@ -45,10 +46,10 @@ public class Personne implements Serializable {
 	}
     
 	@OneToMany(mappedBy="personne")
-	public List<Residence> getListResidence() {
+	public Collection<Residence> getListResidence() {
 		return listResidence;
 	}
-	public void setListResidence(List<Residence> listResidence) {
+	public void setListResidence(Collection<Residence> listResidence) {
 		this.listResidence = listResidence;
 	}
 }

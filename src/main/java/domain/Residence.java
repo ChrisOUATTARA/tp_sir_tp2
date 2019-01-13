@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,9 +17,7 @@ public class Residence implements Serializable {
 	private double taille;
 	private int nbrePiece;
 	private String chauffage;
-	@OneToMany(mappedBy="residence")
-	private List<EquipementEctro> ListEquipementEctro;
-	@ManyToOne
+	private Collection<EquipementEctro> listEquipementEctro;
 	private Personne personne;
 	
 	@Id
@@ -47,12 +46,15 @@ public class Residence implements Serializable {
 	public void setChauffage(String chauffage) {
 		this.chauffage = chauffage;
 	}
-	public List<EquipementEctro> getListEquipementEctro() {
-		return ListEquipementEctro;
+	
+	@OneToMany(mappedBy="residence")
+	public Collection<EquipementEctro> getListEquipementEctro() {
+		return listEquipementEctro;
 	}
 	public void setListEquipementEctro(List<EquipementEctro> listEquipementEctro) {
-		ListEquipementEctro = listEquipementEctro;
+		listEquipementEctro = listEquipementEctro;
 	}
+	@ManyToOne
 	public Personne getPersonne() {
 		return personne;
 	}

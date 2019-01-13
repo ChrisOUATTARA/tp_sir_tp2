@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 public class EquipementEctro implements Serializable {
 	private int idEquipementEctro;
 	private double consommation;
-	@ManyToOne
 	private Residence residence;
 	
 	@Id
@@ -28,6 +27,7 @@ public class EquipementEctro implements Serializable {
 	public void setConsommation(double consommation) {
 		this.consommation = consommation;
 	}
+	@ManyToOne
 	public Residence getResidence() {
 		return residence;
 	}
